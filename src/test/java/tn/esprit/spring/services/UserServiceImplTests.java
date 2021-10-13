@@ -65,7 +65,7 @@ class UserServiceImplTest  {
 			 testRetrieveUser();
 			 L.info("Out of testAll()");
 		}catch(Exception e){
-		L.error("Out of testAll() wirh Errors :" + e);
+		L.error("Out of testAll() wirh Errors : " + e);
 		}
 	}
 	
