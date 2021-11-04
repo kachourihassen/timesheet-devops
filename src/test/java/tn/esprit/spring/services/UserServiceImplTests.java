@@ -26,12 +26,12 @@ class UserServiceImplTest  {
 	@Test
 	public void testRetrieveAllUsers() {
 	List<User> listUsers = us.retrieveAllUsers();
-	Assertions.assertEquals(2, listUsers.size());
+	Assertions.assertEquals(4, listUsers.size());
 	}
 	public void testAddUser() throws ParseException{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		User u = new User("hassen1","hassen1",d,Role.INGENIEUR);
+		User u = new User("hassen7","hassen7",d,Role.INGENIEUR);
 		User userAdded = us.addUser(u);
 		Assertions.assertEquals(u.getLastName(), userAdded.getLastName());
 		
@@ -39,18 +39,18 @@ class UserServiceImplTest  {
 	public void testModifyUser() throws ParseException{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		User u = new User(5L,"hassen1zzzz","hassen1",d,Role.INGENIEUR);
+		User u = new User(1L,"hassen1zzzz","hassen1",d,Role.INGENIEUR);
 		User userupdated = us.addUser(u);
 		Assertions.assertEquals(u.getLastName(), userupdated.getLastName());
 		
 	}
 	public void testDeleteUser(){
-		us.deleteUser("3");
-		Assertions.assertNull(us.retrieveUser("3"));
+		us.deleteUser("1");
+		Assertions.assertNull(us.retrieveUser("1"));
 	}
 	public void testRetrieveUser(){
-		User userRetrieved = us.retrieveUser("3");
-		Assertions.assertEquals(1l, userRetrieved.getId().longValue());
+		User userRetrieved = us.retrieveUser("2");
+		Assertions.assertEquals(2l, userRetrieved.getId().longValue());
 	}
 	private static final Logger L = LogManager.getLogger(UserServiceImplTest.class);
 	
