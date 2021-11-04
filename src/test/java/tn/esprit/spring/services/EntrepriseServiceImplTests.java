@@ -5,6 +5,8 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.services.IEntrepriseService;
+
+
+ 
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
@@ -52,11 +57,26 @@ class EntrepriseServiceImplTests {
 		Assertions.assertEquals(0, listEntreprises.size());
 	}
 	
+//	@Test
+//	public void testEntreprise(){
+//		testAddEntreprise();
+//		testRetrieveAllEntreprises();
+//		testUpdateEntreprise();
+//		testDeleteEntreprise();
+//	}
+	private static final Logger L = LogManager.getLogger(EntrepriseServiceImplTests.class);
 	@Test
 	public void testEntreprise(){
-		testAddEntreprise();
-		testRetrieveAllEntreprises();
-		testUpdateEntreprise();
-		testDeleteEntreprise();
+		try{
+			L.info("In testEntreprise()");
+			testAddEntreprise();
+			testRetrieveAllEntreprises();
+			testUpdateEntreprise();
+			testDeleteEntreprise();
+			 L.info("Out of testEntreprise()");
+		}catch(Exception e){
+		L.error("Out of testEntreprise() wirh Errors : " + e);
+		}
 	}
+	
 }
