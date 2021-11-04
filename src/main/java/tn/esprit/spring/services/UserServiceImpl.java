@@ -66,10 +66,14 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User retrieveUser(String id) {
+		User u = null;
+		try {
 		l.info("In of Methode retrieveUser:");
 		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		User u =  userRepository.findById(Long.parseLong(id)).get(); 
-		l.info("Out of Methode retrieveUser:");
+		  u =  userRepository.findById(Long.parseLong(id)).get(); 
+		}catch(Exception e){
+		l.error("Error in retrieveUser() : "+ e);
+		}
 		return u; 
 	}
 
