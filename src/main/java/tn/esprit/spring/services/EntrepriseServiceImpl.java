@@ -11,11 +11,11 @@ import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
-public class IEntrepriseServiceImpl implements IEntrepriseService {
+public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Autowired
 	EntrepriseRepository entrepriseRepository;
-	private static final Logger l = LogManager.getLogger(IEntrepriseServiceImpl.class);
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceImpl.class);
 
 	@Override
 	public List<Entreprise> retrieveAllEntreprises() {
