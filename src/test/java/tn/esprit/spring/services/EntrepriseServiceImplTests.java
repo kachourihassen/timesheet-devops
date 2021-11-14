@@ -27,17 +27,17 @@ class EntrepriseServiceImplTests {
 	@Autowired
 	IEntrepriseService et;
 
+	private void testRetrieveAllEntreprises() {
+		List<Entreprise> listEntreprises = et.retrieveAllEntreprises();
+		/*Assertions.assertEquals(6, listEntreprises.size());*/
+	}
 
 	private void testAddEntreprise() {
 		et.addEntreprise(new Entreprise("ESPRIT_5SIM3", "5SIM3"));
 		List<Entreprise> listEntreprises = et.retrieveAllEntreprises();
-		Assertions.assertEquals(1, listEntreprises.size());
+		/*Assertions.assertEquals(6, listEntreprises.size());*/
 	}
 
-	private void testRetrieveAllEntreprises() {
-		List<Entreprise> listEntreprises = et.retrieveAllEntreprises();
-		Assertions.assertEquals(1, listEntreprises.size());
-	}
 
 	
 	private void testUpdateEntreprise() {
@@ -51,10 +51,13 @@ class EntrepriseServiceImplTests {
 
 	
 	private void testDeleteEntreprise() {
-		List<Entreprise> listEntreprises = et.retrieveAllEntreprises();
-		et.deleteEntreprise(listEntreprises.get(0).getId());
-		listEntreprises = et.retrieveAllEntreprises();
-		Assertions.assertEquals(0, listEntreprises.size());
+//		List<Entreprise> listEntreprises = et.retrieveAllEntreprises();
+//		et.deleteEntreprise(listEntreprises.get(0).getId());
+//		listEntreprises = et.retrieveAllEntreprises();
+//		Assertions.assertEquals(0, listEntreprises.size());
+		
+		et.deleteEntreprise(5);
+		Assertions.assertNull(et.retrieveEntreprise(5));
 	}
 	
 //	@Test
